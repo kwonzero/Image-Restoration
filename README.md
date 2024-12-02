@@ -20,8 +20,8 @@
   - 2024/11/22(금)
     - BaseLine Model 생성 (NAFNet_v1)
     - Augmentation
-      - Horizontal Flip
-      - Vertical Flip
+      * Horizontal Flip
+      * Vertical Flip
         
   - 2024/11/25(월)
     - NAFNet_v2, v3, v4
