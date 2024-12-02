@@ -11,9 +11,9 @@
   - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
   ```
   - SIDD
-    + gt_images.npy
-    + gt_images_128.npy
-    + gt_images_256.npy
+    - gt_images.npy
+    - gt_images_128.npy
+    - gt_images_256.npy
     - noisy_images.npy
     - noisy_images_128.npy
     - noisy_images_256.npy
@@ -39,4 +39,6 @@
     - Augemntation
         - Train : 기존 Origial(128), Horizontal Flip(128), Vertical Flip(128)을 2X2 Patch로 나눔. 기존 데이터 수 384장에서 1536장으로 4배 증가
         - Validation, Test : 2X2 Patch 증강
-        - 성능개선 : - Loss: 50.690 / - PSNR: 49.301- SSIM: 0.996으로 상당한 성능 개선 
+    - 성능개선 : - Loss: 50.690 / - PSNR: 49.301- SSIM: 0.996으로 상당한 성능 개선
+    - 한계 : 과적합 (30 epoch 약간 앞에서 Train Loss와 Val Loss 교차)
+    - 추후 진행 : Learning Rate Scheduler를 추가하여 Validation Loss가 수렴하기 전에 최적점을 찾아볼 것이다.
