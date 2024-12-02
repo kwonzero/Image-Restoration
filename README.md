@@ -22,12 +22,14 @@
     - Augmentation
       - Horizontal Flip
       - Vertical Flip
+        
   - 2024/11/25(월)
     - NAFNet_v2, v3, v4
     - Architecture 수정 (유의미한 성능 개선 X)
       - enc_blks = [1, 1, 1, 28] -> [1, 1, 1, 1] -> [2, 2, 4, 8] 
       - middle_blk_num = 1       -> 1 x 2        -> 12
       - dec_blks = [1, 1, 1, 1] ->  [1, 1, 1, 1] -> [2, 2, 2, 2]
+        
   - 2024/12/2(월)
     - NAFNet_v5
     - Augemntation
