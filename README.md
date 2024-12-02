@@ -20,13 +20,13 @@
   ```
 * 진행 사항
   - 2024/11/22(금)
-    - BaseLine Model 생성 (NAFNet_v1)
+    - BaseLine Model 생성 (nafnet_v1)
     - Augmentation
       - Horizontal Flip
       - Vertical Flip
         
   - 2024/11/25(월)
-    - NAFNet_v2, v3, v4
+    - nafnet_v2, v3, v4
     - Architecture 수정 (유의미한 성능 개선 X)
       ```
       - enc_blks       = [1, 1, 1, 28] -> [1, 1, 1, 1] -> [2, 2, 4, 8] 
@@ -34,7 +34,7 @@
       - dec_blks       = [1, 1, 1, 1]  -> [1, 1, 1, 1] -> [2, 2, 2, 2]
       ```  
   - 2024/12/2(월)
-    - NAFNet_v5
+    - nafnet_v5
     - Augemntation
         - Train : 기존 Origial(128), Horizontal Flip(128), Vertical Flip(128)을 2X2 Patch로 나눔. 기존 데이터 수 384장에서 1536장으로 4배 증가
         - Validation, Test : 2X2 Patch 증강
