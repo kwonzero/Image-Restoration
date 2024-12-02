@@ -38,4 +38,4 @@
     - Augemntation
         - Train : 기존 Origial(128), Horizontal Flip(128), Vertical Flip(128)을 2X2 Patch로 나눔. 기존 데이터 수 384장에서 1536장으로 4배 증가
         - Validation, Test : 2X2 Patch 증강
-        - 성능개선 : 실험 중
+        - 성능개선 : - Loss: 50.690 / - PSNR: 49.301- SSIM: 0.996으로 상당한 성능 개선 
