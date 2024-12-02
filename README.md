@@ -27,6 +27,7 @@
         
   - 2024/11/25(월)
     - nafnet_v2, v3, v4
+    - 기존 Augmentation 유지
     - Architecture 수정 (유의미한 성능 개선 X)
       ```
       - enc_blks       = [1, 1, 1, 28] -> [1, 1, 1, 1] -> [2, 2, 4, 8] 
