@@ -11,6 +11,7 @@
 * 데이터 구조
   1. SIDD
      - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
+     - train : 128 장 / validation : 16장 / test : 16장
     ```
     - SIDD
       - gt_images.npy
@@ -21,7 +22,9 @@
       - noisy_images_256.npy
     ```
   2. Gopro
-     - dd
+     - 아래 데이터 중 Gopro의 train, test 데이터 사용
+     - train : ??? 장 / validation : ??장 / test : ??장
+     - 아래 데이터 구조 수정
       ```
       -  DBlur
         - CelebA
@@ -35,20 +38,6 @@
         - TextOCR
         - Wider-Face
       CelebA
-
-Gopro
-
-HIDE
-
-Helen
-
-RealBlur_J
-
-RealBlur_R
-
-TextOCR
-
-Wider-Face
       ```
 * 진행 사항
   - 2024/11/22(금)
@@ -73,7 +62,9 @@ Wider-Face
         - Validation, Test : 2X2 Patch 증강
     - 성능개선 : Loss: 50.690 / PSNR: 49.301 / SSIM: 0.996으로 매우 높은 성능 
     - 한계 : 과적합 (30 epoch 약간 앞에서 Train Loss와 Val Loss 교차)
-    - 추후 진행 : Learning Rate Scheduler를 추가하여 Validation Loss가 수렴하기 전에 최적점을 찾아 성능 개선
 
-  - 2024/12/3(화)
-    - 
+  - 2024/12/4(수)
+    - TODO 
+      1. Learning Rate Scheduler를 추가하여 Validation Loss가 수렴하기 전에 최적점을 찾아 성능 개선
+      2. sidd challenge dataset으로 바꾸어 실험 진행 및 결과 비교 (*참고: https://abdokamel.github.io/sidd/ , https://competitions.codalab.org/competitions/22230)
+      3. 
