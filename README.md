@@ -5,19 +5,51 @@
   - 진행 중 
 * 데이터셋
   - SIDD (Smartphone Image Denoising Dataset)
-  - 링크 : [https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)
+    - 링크 : [https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)
+  - Gopro
+    - 링크 : https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets/data
 * 데이터 구조
-  - 다운 받은 압축 파일을 풀면 아래와 같은 구조가 나옴
-  - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
-  ```
-  - SIDD
-    - gt_images.npy
-    - gt_images_128.npy
-    - gt_images_256.npy
-    - noisy_images.npy
-    - noisy_images_128.npy
-    - noisy_images_256.npy
-  ```
+  1. SIDD
+     - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
+    ```
+    - SIDD
+      - gt_images.npy
+      - gt_images_128.npy
+      - gt_images_256.npy
+      - noisy_images.npy
+      - noisy_images_128.npy
+      - noisy_images_256.npy
+    ```
+  2. Gopro
+     - dd
+      ```
+      -  DBlur
+        - CelebA
+        - Gopro
+          + train
+          + test
+        - HIDE
+        - Helen
+        - RealBlur_J
+        - RealBlur_R
+        - TextOCR
+        - Wider-Face
+      CelebA
+
+Gopro
+
+HIDE
+
+Helen
+
+RealBlur_J
+
+RealBlur_R
+
+TextOCR
+
+Wider-Face
+      ```
 * 진행 사항
   - 2024/11/22(금)
     - BaseLine Model 생성 (nafnet_v1)
