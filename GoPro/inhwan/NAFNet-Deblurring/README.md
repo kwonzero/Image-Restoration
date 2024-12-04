@@ -20,6 +20,7 @@
 ## 진행 사항
 
 - 12/02
+  [NAFNet-gopro-dataset_v1]
   * learning rate : 1e-3
   * epoch = 50
   * param : set 1
@@ -30,6 +31,7 @@
       * {Val Loss: 71.0571, Val PSNR: 28.9429, Val SSIM: 0.9219}
  
 - 12/04
+  [NAFNet-gopro-dataset_v1_2]
   * Validation, Test dataset split 작업 진행 -> Train : Valid : Test = 2103 : 555 : 556
   * learning rate : 1e-3
   * epoch = 50
