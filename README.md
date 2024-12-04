@@ -29,20 +29,20 @@
      - 아래 데이터 구조 수정
       ```
       -  DBlur
-        - CelebA
-        - Gopro
-          ㄴ train
-             ㄴblur (2103장)
-             ㄴ sharp (2103장)
-          ㄴ test
-             ㄴblur (1111장)
-             ㄴ sharp (1111장)
-        - HIDE
-        - Helen
-        - RealBlur_J
-        - RealBlur_R
-        - TextOCR
-        - Wider-Face
+          ㄴCelebA
+          ㄴGopro
+            ㄴtrain
+              ㄴblur (2103장)
+              ㄴsharp (2103장)
+            ㄴtest
+              ㄴblur (1111장)
+              ㄴsharp (1111장)
+          ㄴHIDE
+          ㄴHelen
+          ㄴRealBlur_J
+          ㄴRealBlur_R
+          ㄴTextOCR
+          ㄴWider-Face
       ```
 * 진행 사항
   - 2024/11/22(금)
