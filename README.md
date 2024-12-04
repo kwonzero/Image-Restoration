@@ -11,33 +11,38 @@
 * 데이터 구조
   1. SIDD
      - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
-     - train : 128 장 / validation : 16장 / test : 16장
+      - 데이터 분할 -> train : 128 장 / validation : 16장 / test : 16장
     ```
     - SIDD
       - gt_images.npy
       - gt_images_128.npy
-      - gt_images_256.npy
+      - gt_images_256.npy (160장)
       - noisy_images.npy
       - noisy_images_128.npy
-      - noisy_images_256.npy
+      - noisy_images_256.npy (160장)
     ```
   2. Gopro
-     - 아래 데이터 중 Gopro의 train, test 데이터 사용
-     - train : ??? 장 / validation : ??장 / test : ??장
+     - 아래 데이터 중 Gopro의 train, test 사용 (test는 validataion : test 절반씩 분할)
+      - train :  blur:2103 / sharp:2103
+      - validation : blur:556 / sharp:556
+      - test : blur:555 / sharp:555
      - 아래 데이터 구조 수정
       ```
       -  DBlur
         - CelebA
         - Gopro
-          + train
-          + test
+          ㄴ train
+             ㄴblur (2103장)
+             ㄴ sharp (2103장)
+          ㄴ test
+             ㄴblur (1111장)
+             ㄴ sharp (1111장)
         - HIDE
         - Helen
         - RealBlur_J
         - RealBlur_R
         - TextOCR
         - Wider-Face
-      CelebA
       ```
 * 진행 사항
   - 2024/11/22(금)
