@@ -38,9 +38,9 @@
       * {Val Loss: 70.9691, Val PSNR: 29.0309, Val SSIM: 0.9228}
       * {Test Loss: 70.9692, Test PSNR: 29.0308, Test SSIM: 0.9212}
 
-  ## 진행 예정 사항
-    1. enc_blks, middle_blks_num, dec_blks 변경 후 결과 확인 (default setting의 경우 50 epoch -> 약 3시간 20분 소요)
-    2. Scheduler (stepLR, cosineAnnealingLR 등) 적용 후 성능 비교
-    3. dropout (0.2) 적용 -> 과적합 방지
-    4. transforms - resize 대신 crop 후 결과 확인 (정보 손실 최소화)
-    5. SimpleGate 구조 변경
+## 진행 예정 사항
+ 1. enc_blks, middle_blks_num, dec_blks 변경 후 결과 확인 (default setting의 경우 50 epoch -> 약 3시간 20분 소요)
+ 2. Scheduler (stepLR, cosineAnnealingLR 등) 적용 후 성능 비교
+ 3. dropout (0.2) 적용 -> 과적합 방지
+ 4. transforms - resize 대신 crop 후 결과 확인 (정보 손실 최소화)
+ 5. SimpleGate 구조 변경
