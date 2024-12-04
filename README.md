@@ -2,7 +2,8 @@
 
  
 * 최종결과
-  - 진행 중 
+  - 진행 중
+  - 
 * 데이터셋
   - SIDD (Smartphone Image Denoising Dataset)
     - 링크 : [https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)
@@ -70,6 +71,5 @@
 
   - 2024/12/4(수)
     - TODO 
-      1. Learning Rate Scheduler를 추가하여 Validation Loss가 수렴하기 전에 최적점을 찾아 성능 개선
-      2. sidd challenge dataset으로 바꾸어 실험 진행 및 결과 비교 (*참고: https://abdokamel.github.io/sidd/ , https://competitions.codalab.org/competitions/22230)
-      3. 
+      1. sidd challenge dataset으로 바꾸어 실험 진행 및 결과 비교 (*참고: https://abdokamel.github.io/sidd/ , https://competitions.codalab.org/competitions/22230)
+      2. Submission 제출 후 성능 확인
