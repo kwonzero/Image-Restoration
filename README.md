@@ -106,4 +106,7 @@
          - 한계 : enhanced model 2에비해 과적합이 감소하였지만 더 개선할 여지가 있음
         
   - 2024/12/6(금)
-  - TODO : enhanced model 4의 성능 향상 및 과적합 개선 방안 모색 (LR_Scheduler / RL 감소 / L2 규제 등)
+  - TODO :enhanced model 4의 성능 향상 및 과적합 개선 방안 모색
+    1. 과적합 개선 : LR_Scheduler / RL 감소 / L2 규제 등
+    2. 성능 개선   : transforms - resize 대신 Random Crop
+
