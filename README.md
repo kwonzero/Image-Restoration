@@ -6,27 +6,24 @@
 * 데이터셋
   - SIDD (Smartphone Image Denoising Dataset)
     - 링크 : [https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)
+    - 데이터 구조
+      * SIDD
+        - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
+        - 데이터 분할 -> train : 128 장 / validation : 16장 / test : 16장
+          ```
+          - SIDD
+            - gt_images.npy
+            - gt_images_128.npy
+            - gt_images_256.npy (160장)
+            - noisy_images.npy
+            - noisy_images_128.npy
+            - noisy_images_256.npy (160장)
+          ```
+
+        
   - Gopro
     - 링크 : https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets/data
-* 데이터 구조
-  1. SIDD
-     - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
-      - 데이터 분할 -> train : 128 장 / validation : 16장 / test : 16장
-    ```
-    - SIDD
-      - gt_images.npy
-      - gt_images_128.npy
-      - gt_images_256.npy (160장)
-      - noisy_images.npy
-      - noisy_images_128.npy
-      - noisy_images_256.npy (160장)
-    ```
-  2. Gopro
-     - 아래 데이터 중 Gopro의 train, test 사용 (test는 validataion : test 절반씩 분할)
-      - train :  blur:2103 / sharp:2103
-      - validation : blur:556 / sharp:556
-      - test : blur:555 / sharp:555
-     - 아래 데이터 구조 수정
+    - 데이터 구조
       ```
       -  DBlur
           ㄴCelebA
@@ -44,6 +41,12 @@
           ㄴTextOCR
           ㄴWider-Face
       ```
+    - 데이터 중 Gopro의 train, test 사용 (test는 validataion : test 절반씩 분할)
+      - train      : blur:2103 / sharp:2103
+      - validation : blur:556 / sharp:556
+      - test       : blur:555 / sharp:555
+
+     
 * 진행 사항
   - 2024/11/22(금)
     - BaseLine Model 생성 (nafnet_v1)
