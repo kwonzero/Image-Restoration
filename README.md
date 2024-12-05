@@ -109,4 +109,5 @@
   - TODO :enhanced model 4의 성능 향상 및 과적합 개선 방안 모색
     1. 과적합 개선 : LR_Scheduler / RL 감소 / L2 규제 등
     2. 성능 개선   : transforms - resize 대신 Random Crop
+    3. Dataset 구성 변경
 
