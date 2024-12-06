@@ -87,42 +87,35 @@
     - sidd challenge dataset으로 변경 후 실험 진행
      
       1. Baseline model
-         ```
          - LR = 1e-4 / 150 Epoch
          - PSNR: 32.0821 / SSIM: 0.8392
-         ```     
+    
       2. enhanced model 1 (01_data_x12.ipynb)
-          ```
          - LR = 1e-4 / 60 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강 (완료)
          - PSNR: 36.531 / SSIM: 0.936
          - train 이미지를 horizontal Flip, Vertical Flip와 2x2 patch를 통해 128장에서 1536장으로 12배 증가시킴
          - 한계 : 학습 초반부터 과적합 / 과도한 데이터 수 증가로 인해 과적합이 발생한다고 판단
-          ```     
+          
       3. enhanced model 2 (02_data_transform.ipynb)
-          ```
          - LR = 1e-4 / 300 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강
          - PSNR: 32.9756 / SSIM: 0.8724
          - horizontal Flip, Vertical Flip을 통한 물리적인 데이터 수를 증강 대신 이미지 변형으로 변경
          - 한계 : 과적합 문제는 해결 되었지만 enhanced model 1에 비해 성능이 매우 떨어짐
-          ```
+          
     
 
       4. enhanced model 3 (03_architecture_improvement.ipynb)
-         ```
          - LR = 1e-4 / 300 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강
          - PSNR: 32.9179 / SSIM: 0.8709
          - 모델 구조 개선(복잡도 증가) - enc_blks = [1, 1, 1, 1] -> [2, 2, 4, 8] / middle_blk_num = 1 -> 12 / dec_blks = [1, 1, 1, 28] -> [2, 2, 2, 2]
          - 모델 파라미터 증로 성능 개선 시도
          - 한계 : PSNR은 약간 증가 SSIM은 하락 / 물리적인 데이터 개수가 중요하다 판단 됨
-         ```
         
       6. enhanced model 4 (04_data_x12_dropout.ipynb)
-         ```
          - LR = 1e-4 / 60 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강 / dropout=0.5
          - PSNR: 37.5522 / SSIM: 0.9454
          - enhanced model 2에 dropout=0.5 을 추가하여 과적합 유의미한 개선
          - 한계 : enhanced model 2에비해 과적합이 감소하였지만 더 개선할 여지가 있음
-         ```
     ```
       
   - 2024/12/6(금)
