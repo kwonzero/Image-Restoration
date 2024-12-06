@@ -101,8 +101,6 @@
          - PSNR: 32.9756 / SSIM: 0.8724
          - horizontal Flip, Vertical Flip을 통한 물리적인 데이터 수를 증강 대신 이미지 변형으로 변경
          - 한계 : 과적합 문제는 해결 되었지만 enhanced model 1에 비해 성능이 매우 떨어짐
-          
-    
 
       4. enhanced model 3 (03_architecture_improvement.ipynb)
          - LR = 1e-4 / 300 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강
@@ -123,23 +121,19 @@
     - enhanced model 4 개선: 성능 향상 및 과적합 개선 방안 모색
 
         1. 성능 개선
-           ```
            - 기존 방법 : Raw Image(3000, 5328) -> Resize(256, 256)     -> 2x2 Patch(128, 128) -> Resize(256, 256)
            - 개선 방법 1 : Raw Image(3000, 5328) -> RandomCrop(512, 512) -> 2x2 Patch(256, 256)
                - 2번의 Resize로 인한 보간 과정에서 정보 손실을 줄이고 이미지 디테일을 살림
                - PSNR: 37.7398  / SSIM: 0.9396
                - 기대보다 성능 개선이 이루어지지 않음
            
-           - 개선 방법 2 : Raw Image(3000, 5328) -> sliding window(256, 256) 
+           - 개선 방법 2 : Raw Image(3000, 5328) -> sliding window(256, 256)  
 
-           ```
-      
+
         3. 과적합 개선
-           ```
            - LR_Scheduler
            - RL 감소
            - L2 규제 등
-           ```
     ```
  
 # 진행 예정
