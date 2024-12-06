@@ -49,12 +49,15 @@
      
 * 진행 사항
   - 2024/11/22(금)
+    ```
     - BaseLine Model 생성 (nafnet_v1)
     - Augmentation
       - Horizontal Flip(물리적 증강)
       - Vertical Flip(물리적 증강)
+    ```
         
   - 2024/11/25(월)
+    ```
     - nafnet_v2, v3, v4
     - 기존 Augmentation 유지
     - Architecture 수정 (유의미한 성능 개선 X)
@@ -62,20 +65,24 @@
       - enc_blks       = [1, 1, 1, 28] -> [1, 1, 1, 1] -> [2, 2, 4, 8] 
       - middle_blk_num = 1             ->  1 x 2       ->  12
       - dec_blks       = [1, 1, 1, 1]  -> [1, 1, 1, 1] -> [2, 2, 2, 2]
-      ```  
+      ```
+    ```
   - 2024/12/2(월)
+    ```
     - nafnet_v5
     - Augemntation
         - Train : 기존 Origial(128), Horizontal Flip(128), Vertical Flip(128)을 2X2 Patch로 나눔. 기존 데이터 수 384장에서 1536장으로 4배 증가
         - Validation, Test : 2X2 Patch 증강
     - 성능개선 : Loss: 50.690 / PSNR: 49.301 / SSIM: 0.996으로 매우 높은 성능 
     - 한계 : 과적합 (30 epoch 약간 앞에서 Train Loss와 Val Loss 교차)
+    ```
 
   - 2024/12/4(수)
-    - TODO 
+    ```
       1. sidd challenge dataset으로 바꾸어 실험 진행 및 결과 비교 (*참고: https://abdokamel.github.io/sidd/ , https://competitions.codalab.org/competitions/22230)
       2. PSNR: 36.531071186065674 / SSIM: 0.9363919422030449
-     
+     ```
+    
   - 2024/12/5(목)
     - sidd challenge dataset으로 변경 후 실험 진행
      
@@ -83,7 +90,7 @@
          ```
          - LR = 1e-4 / 150 Epoch
          - PSNR: 32.0821 / SSIM: 0.8392
-          ```     
+         ```     
       2. enhanced model 1 (01_data_x12.ipynb)
           ```
          - LR = 1e-4 / 60 Epoch / horizontal Flip / Vertical Flip / 2x2 Patch 증강 (완료)
@@ -121,12 +128,12 @@
 
         1. 성능 개선
            ```
-          - 기존 방법 : Raw Image(3000, 5328) -> Resize(256, 256)     -> 2x2 Patch(128, 128) -> Resize(256, 256)
-          - 개선 방법 1 : Raw Image(3000, 5328) -> RandomCrop(512, 512) -> 2x2 Patch(256, 256)
-          - 개선 방법 2 : Raw Image(3000, 5328) -> sliding window(256, 256)
-          - 2번의 Resize로 인한 보간 과정에서 정보 손실을 줄이고 이미지 디테일을 살림
-          - 실험 다시 해봐야 할듯 - validation과 test dataset은 원본 이미지 그대로 prediction
-          ```
+           - 기존 방법 : Raw Image(3000, 5328) -> Resize(256, 256)     -> 2x2 Patch(128, 128) -> Resize(256, 256)
+           - 개선 방법 1 : Raw Image(3000, 5328) -> RandomCrop(512, 512) -> 2x2 Patch(256, 256)
+           - 개선 방법 2 : Raw Image(3000, 5328) -> sliding window(256, 256)
+           - 2번의 Resize로 인한 보간 과정에서 정보 손실을 줄이고 이미지 디테일을 살림
+           - 실험 다시 해봐야 할듯 - validation과 test dataset은 원본 이미지 그대로 prediction
+           ```
       
         3. 과적합 개선
            ```
