@@ -7,7 +7,6 @@
   - SIDD (Smartphone Image Denoising Dataset)
     - 링크 : [https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)
     - 데이터 구조
-      * SIDD
         - 아래 데이터 중 gt_images_256.npy과 noisy_images_256.npy 사용
         - 데이터 분할 -> train : 128 장 / validation : 16장 / test : 16장
           ```
