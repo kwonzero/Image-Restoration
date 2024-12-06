@@ -37,6 +37,20 @@
       * {Train Loss: 70.0215, Train PSNR: 29.9785, Train SSIM: 0.9274}
       * {Val Loss: 70.9691, Val PSNR: 29.0309, Val SSIM: 0.9228}
       * {Test Loss: 70.9692, Test PSNR: 29.0308, Test SSIM: 0.9212}
+- 12/06
+  [NAFNet-gopro-dataset_v2]
+  * blocks parameter -> NAFNet Default 설정으로 세팅
+  * blocks_parameter
+      * enc_blks = [1, 1, 1, 28]
+      * middle_blks_num = 1
+      * dec_blks = [1, 1, 1, 1]
+      * total parameter: 17,111,907
+  * result (best model's weights load)
+      * {Train Loss: 69.5422, Train PSNR: 30.4578, Train SSIM: 0.9311}
+      * {Val Loss: 70.7287, Val PSNR: 29.2713, Val SSIM: 0.9251}
+      * {Test Loss: 70.8195, Test PSNR: 29.1805, Test SSIM: 0.9232}
+  * parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소
+  * Epoch 6에서 Training, Validation Loss값이 대폭 증가 (L2 규제를 추가하여 학습 안정화 필요)
 
 ## 진행 예정 사항
  1. enc_blks, middle_blks_num, dec_blks 변경 후 결과 확인 (default setting의 경우 50 epoch -> 약 3시간 20분 소요)
