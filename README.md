@@ -60,12 +60,12 @@
     - nafnet_v2, v3, v4
     - 기존 Augmentation 유지
     - Architecture 수정 (유의미한 성능 개선 X)
-      ```
       - enc_blks       = [1, 1, 1, 28] -> [1, 1, 1, 1] -> [2, 2, 4, 8] 
       - middle_blk_num = 1             ->  1 x 2       ->  12
       - dec_blks       = [1, 1, 1, 1]  -> [1, 1, 1, 1] -> [2, 2, 2, 2]
-      ```
+  
     ```
+    
   - 2024/12/2(월)
     ```
     - nafnet_v5
@@ -83,6 +83,7 @@
      ```
     
   - 2024/12/5(목)
+    ```
     - sidd challenge dataset으로 변경 후 실험 진행
      
       1. Baseline model
@@ -104,6 +105,7 @@
          - horizontal Flip, Vertical Flip을 통한 물리적인 데이터 수를 증강 대신 이미지 변형으로 변경
          - 한계 : 과적합 문제는 해결 되었지만 enhanced model 1에 비해 성능이 매우 떨어짐
           ```
+    
 
       4. enhanced model 3 (03_architecture_improvement.ipynb)
          ```
@@ -121,8 +123,10 @@
          - enhanced model 2에 dropout=0.5 을 추가하여 과적합 유의미한 개선
          - 한계 : enhanced model 2에비해 과적합이 감소하였지만 더 개선할 여지가 있음
          ```
+    ```
       
   - 2024/12/6(금)
+    ```
     - enhanced model 4 개선: 성능 향상 및 과적합 개선 방안 모색
 
         1. 성능 개선
@@ -143,6 +147,7 @@
            - RL 감소
            - L2 규제 등
            ```
+    ```
  
 # 진행 예정
 - 성능 개선-개선 방법 2
