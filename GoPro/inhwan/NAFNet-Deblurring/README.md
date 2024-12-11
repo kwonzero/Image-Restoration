@@ -8,7 +8,7 @@
     * device : Cuda (GPU T4 x 2)
     * image_resize : 256x256
     * num_workers = 4
-    * batch_size = 16
+    * batch_size = 16 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
 * Transforms
     * resize : 256x256 (bicubic interpolation)
     * random horizontal flip (0.2)
@@ -49,8 +49,18 @@
       * {Train Loss: 69.5422, Train PSNR: 30.4578, Train SSIM: 0.9311}
       * {Val Loss: 70.7287, Val PSNR: 29.2713, Val SSIM: 0.9251}
       * {Test Loss: 70.8195, Test PSNR: 29.1805, Test SSIM: 0.9232}
-  * parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소
   * Epoch 6에서 Training, Validation Loss값이 대폭 증가 (L2 규제를 추가하여 학습 안정화 필요)
+-12/11
+  [NAFNet-gopro-dataset_v3]
+  * blocks_parameter
+      * enc_blks = [2, 2, 4, 8]
+      * middle_blks_num = 12
+      * dec_blks = [2, 2, 2, 2]
+      * total parameter: 29,159,715
+  * result (best model's weights load)
+      * {}
+      * {}
+      * {}
 
 ## 진행 예정 사항
  1. enc_blks, middle_blks_num, dec_blks 변경 후 결과 확인 (default setting의 경우 50 epoch -> 약 3시간 20분 소요)
