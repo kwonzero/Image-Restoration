@@ -50,7 +50,7 @@
       * {Val Loss: 70.7287, Val PSNR: 29.2713, Val SSIM: 0.9251}
       * {Test Loss: 70.8195, Test PSNR: 29.1805, Test SSIM: 0.9232}
   * Epoch 6에서 Training, Validation Loss값이 대폭 증가 (L2 규제를 추가하여 학습 안정화 필요)
--12/11
+- 12/11
   [NAFNet-gopro-dataset_v3]
   * blocks_parameter
       * enc_blks = [2, 2, 4, 8]
