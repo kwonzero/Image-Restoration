@@ -1,9 +1,11 @@
 # NAFNet-Deblurring
 - NAFNet을 이용한 Deblurring 작업 파이프라인 구축 및 튜닝
 * Dataset
+  '''
     * GoPro Dataset
     * Train Dataset : Blur, Sharp 각각 2103 장 / Test Dataset : Blur, Sharp 각각 1111 장
     * image shape : 1280 x 720
+      '''
 * Default Configs
     * device : Cuda (GPU T4 x 2)
     * image_resize : 256x256
