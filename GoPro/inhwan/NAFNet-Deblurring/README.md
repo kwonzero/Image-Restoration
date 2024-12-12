@@ -35,8 +35,8 @@
   ```
 - 12/04
   [NAFNet-gopro-dataset_v1_2]
-  ```
   - Validation, Test dataset split 작업 진행 -> Train : Valid : Test = 2103 : 555 : 556
+  ```
   * blocks_parameter
       * enc_blks = [1, 1, 1, 1]
       * middle_blks_num = 1
