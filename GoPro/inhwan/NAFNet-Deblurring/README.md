@@ -75,7 +75,7 @@
       * {Val Loss: 69.9356, Val PSNR: 30.0644, Val SSIM: 0.9350}
       * {Test Loss: 69.9329, Test PSNR: 30.0671, Test SSIM: 0.9369}
   ```
-  - blocks_parameter 변경 후 가장 좋은 결과 / 마지막 epoch에서도 Validation PSNR, SSIM값 증가 -> 최대 epoch 수 증가 필요
+  - blocks_parameter 변경 후 가장 좋은 결과 / 마지막 epoch에서도 Validation PSNR, SSIM값 증가 -> 최대 epoch를 늘려야 할것으로 판단
 - 12/12
   [NAFNet-gopro-dataset_v4]
   - Dropout(0.5) layer 추가
