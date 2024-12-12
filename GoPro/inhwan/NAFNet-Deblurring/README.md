@@ -10,8 +10,9 @@
   ```
     * device : Cuda (GPU T4 x 2)
     * image_resize : 256x256
-    * num_workers = 4
-    * batch_size = 16 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
+    * num_workers : 4
+    * batch_size : 16 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
+    * epoch : 50
   ```
 * Transforms
   ```
@@ -78,19 +79,10 @@
   - blocks_parameter 변경 후 가장 좋은 결과 / 마지막 epoch에서도 Validation PSNR, SSIM값 증가 -> 최대 epoch를 늘려야 할것으로 판단
 - 12/12
   [NAFNet-gopro-dataset_v4]
-  - Dropout(0.5) layer 추가
-  - Train, Valid Dataset Transforms : resize (256x256) -> center crop (256x256) 
-  ```
-  * blocks_parameter
-      * enc_blks = [2, 2, 4, 8]
-      * middle_blks_num = 12
-      * dec_blks = [2, 2, 2, 2]
-      * total parameter: 29,159,715
-  * result (best model's weights load)
-      * {}
-      * {}
-      * {}
-  ```
+  - v3 모델에 Dropout(0.5) layer 추가 / Train, Valid Dataset Transforms : resize (256x256) -> center crop (256x256) 
+  - 결과 : v3 모델에 비해 성능이 대폭 하락
+    - 30 epoch 에서 조기 종료
+    - Val SSIM 값이 0.84를 넘지 못함 -> 주요 요인이 transforms 변경인지, Dropout layer 추가인지 확인 필요
 
 ## 진행 예정 사항
 ```
