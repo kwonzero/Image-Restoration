@@ -16,7 +16,7 @@
   ```
 * Transforms
   ```
-    * resize : 256x256 (bicubic interpolation)
+    * resize : 256x256 (bicubic interpolation) -> center crop
     * random horizontal flip (0.2)
     * random vertical filp (0.2)
   ```
