@@ -111,7 +111,6 @@
     - 학습의 속도가 느림(논문에서는 1000~3000 epoch로 학습 진행)
   - 추가 예정 사항
     - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 방지
-     (NAFNet 모델로 학습한 가중치 값을 NAFNet Local 모델에 적용 후 Full size Test 시 성능이 올라가는지 확인 필요)
 
   #Test 2
   - 변경점
@@ -120,6 +119,7 @@
       * {Test Loss: 72.5421, Test PSNR: 27.4579, Test SSIM: 0.8865}
     - Test_1 SSIM : 0.8771 에서 Test_2 SSIM : 0.8865로 유의미한 상승값 확인
   - 추가 예정 사항
+    - Transforms : Center Crop -> Random Crop (256 x 256) & Increase Flip Probablity (0.5)
     - Optimizer 변경 : Adam -> AdamW (beta 1 = 0.9, beta 2 = 0.9, weight decay = 0)
     - L2 규제 추가
   ```
