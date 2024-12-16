@@ -110,7 +110,7 @@
     - 학습 초기부터 과적합 발생 (augmentation 확률 증가 필요)
     - 학습의 속도가 느림(논문에서는 1000~3000 epoch로 학습 진행)
   - 추가 예정 사항
-    - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 -> TLC 적용
+    - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 방지
      (NAFNet 모델로 학습한 가중치 값을 NAFNet Local 모델에 적용 후 Full size Test 시 성능이 올라가는지 확인 필요)
 
   #Test 2
