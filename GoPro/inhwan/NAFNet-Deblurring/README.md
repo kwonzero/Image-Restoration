@@ -12,7 +12,7 @@
     * image_resize : 256x256
     * num_workers : 4
     * batch_size : 16 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
-    * epoch : 50
+    * epoch : 50 -> 100
   ```
 * Transforms
   ```
@@ -80,9 +80,48 @@
 - 12/12
   [NAFNet-gopro-dataset_v4]
   - v3 모델에 Dropout(0.5) layer 추가 / Train, Valid Dataset Transforms : resize (256x256) -> center crop (256x256) 
-  - 결과 : v3 모델에 비해 성능이 대폭 하락
+  - 결과
+    ```
+    - v3 모델에 비해 성능이 대폭 하락
     - 30 epoch 에서 조기 종료
     - Val SSIM 값이 0.84를 넘지 못함 -> 주요 요인이 transforms 변경인지, Dropout layer 추가인지 확인 필요
+    ```
+- 12/13
+  - Train, Validation, Test Dataset 구축 작업 변경점
+    ```
+    기존 : 학습, 검증, 테스트 데이터셋에 모두 Transforms (Resize or Center Crop, Horizontal & Vertical Filp)
+    변경 : 학습, 검증 데이터셋에만 Transforms 적용 / 테스트 데이터셋은 Raw Image (1280 x 720)
+    ```
+  ```
+  [Dataset 구축 작업 변경 이후 학습 진행 사항]
+  (12/16)
+  * blocks_parameter = 'default'
+  
+  # Test 1
+  - 변경점
+    - data transforms : resize(256x256) -> center crop(256x256) 
+    - epoch 100
+    - Dropout(0.5) 추가
+  - 실험 결과
+      * {Train Loss: 70.0902, Train PSNR: 29.9098, Train SSIM: 0.9035}
+      * {Val Loss: 73.3972, Val PSNR: 26.6028, Val SSIM: 0.8646}
+      * {Test Loss: 73.0543, Test PSNR: 26.9457, Test SSIM: 0.8771}
+    - 학습 초기부터 과적합 발생 (augmentation 확률 증가 필요)
+    - 학습의 속도가 느림(논문에서는 1000~3000 epoch로 학습 진행)
+  - 추가 예정 사항
+    - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 -> TLC 적용
+     (NAFNet 모델로 학습한 가중치 값을 NAFNet Local 모델에 적용 후 Full size Test 시 성능이 올라가는지 확인 필요)
+
+  #Test 2
+  - 변경점
+    - Test 1에서 저장된 모델에 TLC 적용 후 추론 진행
+  - 실험 결과
+      * {Test Loss: 72.5421, Test PSNR: 27.4579, Test SSIM: 0.8865}
+    - Test_1 SSIM : 0.8771 에서 Test_2 SSIM : 0.8865로 유의미한 상승값 확인
+  - 추가 예정 사항
+    - Optimizer 변경 : Adam -> AdamW (beta 1 = 0.9, beta 2 = 0.9, weight decay = 0)
+    - L2 규제 추가
+  ```
 
 ## 진행 예정 사항
 ```
