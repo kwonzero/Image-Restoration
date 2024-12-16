@@ -95,6 +95,7 @@
   ```
   [Dataset 구축 작업 변경 이후 학습 진행 사항]
   (12/16)
+  
   * blocks_parameter = 'default'
   
   # Test 1
