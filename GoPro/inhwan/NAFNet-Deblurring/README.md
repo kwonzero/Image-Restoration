@@ -16,9 +16,9 @@
   ```
 * Transforms
   ```
-    * resize : 256x256 (bicubic interpolation) -> center crop
-    * random horizontal flip (0.2)
-    * random vertical filp (0.2)
+    * resize : 256x256 (bicubic interpolation) -> Center Crop -> Random Crop 
+    * random horizontal flip (0.2) -> (0.5)
+    * random vertical filp (0.2) -> (0.5)
   ```
 
 ## 진행 사항
@@ -126,10 +126,7 @@
 
 ## 진행 예정 사항
 ```
- 1. enc_blks, middle_blks_num, dec_blks 변경 후 결과 확인 (default setting의 경우 50 epoch -> 약 3시간 20분 소요)
+ 1. Transform : Center Crop -> Random Crop (256 x 256), Horizontal Filp (0.5), Vertical Flip (0.5) 변경 후 100 epoch 학습 -> TLC 적용 후 추론 결과 확인
  2. Scheduler (stepLR, cosineAnnealingLR 등) 적용 후 성능 비교
- 3. dropout (0.5) 적용 -> 과적합 방지
- 4. transforms - resize 대신 crop 후 결과 확인 (정보 손실 최소화)
- 5. Test-time Local Converter 적용
- 6. SimpleGate -> SwiGLU, GeGLU, ReGLU 변경
+ 3. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
 ```
