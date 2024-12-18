@@ -5,7 +5,7 @@
     
 * 데이터셋
   - SIDD (Smartphone Image Denoising Dataset)
-    - 링크 : [[https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)](https://www.kaggle.com/datasets/rajat95gupta/smartphone-image-denoising-dataset)
+  - 링크 : [[https://dacon.io/competitions/official/236006/overview/description](https://paperswithcode.com/dataset/sidd)](https://www.kaggle.com/datasets/rajat95gupta/smartphone-image-denoising-dataset)
 
 
 * 진행 사항
