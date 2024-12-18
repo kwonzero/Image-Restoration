@@ -9,12 +9,6 @@
 
 
 * 진행 사항
-  - 2024/11/22(금)
-    ```
-    - BaseLine Model 생성 (nafnet_v1)
-    - Augmentation
-      - Horizontal Flip(물리적 증강) , Vertical Flip(물리적 증강)
-   
   - 2024/12/5(목)
     ```
     - sidd challenge dataset으로 변경 후 실험 진행
