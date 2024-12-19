@@ -13,11 +13,11 @@
     ```
     - sidd challenge dataset으로 변경 후 실험 진행
      
-      1. Baseline model
+    - Baseline model
          - LR = 1e-4 / 150 Epoch
          - PSNR: 32.0821 / SSIM: 0.8392
     
-      2. enhanced model 1 (01_data_x12.ipynb)
+    - enhanced model 1 (01_data_x12.ipynb)
          - PSNR: 36.531 / SSIM: 0.936
          - PSNR 13.9 %  / SSIM 11.5 % 개선
          - Augemtation : 128장에서 1536장으로 12배 증가시킴
@@ -25,20 +25,20 @@
            2. 2x2 patch
          - 한계 : 학습 초반부터 과적합 / 과도한 데이터 수 증가로 인해 과적합이 발생한다고 판단
           
-      3. enhanced model 2 (02_data_transform.ipynb)
+    - enhanced model 2 (02_data_transform.ipynb)
          - PSNR: 32.9756 / SSIM: 0.8724
          - PSNR 2.8 %  / SSIM 4.0 % 개선
          - Augmentation 수정 (horizontal Flip, Vertical Flip을 통한 물리적인 이미지 증강에서 이미지 변형으로 변경)
          - 한계 : 과적합 문제는 해결 되었지만 적어진 데이터 수로 인해 충분한 훈련이 되지 않아 enhanced model 1에 비해 성능이 매우 떨어짐
 
-      4. enhanced model 3 (03_architecture_improvement.ipynb)
+    - enhanced model 3 (03_architecture_improvement.ipynb)
          - PSNR: 32.9179 / SSIM: 0.8709
          - PSNR 2.6 %  / SSIM 3.8 % 개선
          - 모델 구조 개선(복잡도 증가) - enc_blks = [1, 1, 1, 1] -> [2, 2, 4, 8] / middle_blk_num = 1 -> 12 / dec_blks = [1, 1, 1, 28] -> [2, 2, 2, 2]
          - 모델 파라미터 증로 성능 개선 시도
          - 한계 : 모델 파라미터 증가보다 물리적인 데이터 개수가 중요하다 판단 됨
-        
-      6. enhanced model 4 (04_data_x12_dropout.ipynb)
+
+    - enhanced model 4 (04_data_x12_dropout.ipynb)
          - PSNR: 37.5522 / SSIM: 0.9454
          - PSNR 17.1%  / SSIM 12.7% 개선
          - enhanced model 1에 dropout=0.5 을 추가하여 과적합 유의미한 개선
@@ -47,7 +47,7 @@
       
   - 2024/12/6(금)
     ```
-    - enhanced model 5
+    - enhanced model 5 (05_data-x12_dropout_randomcrop.ipynb)
          - PSNR: 37.7398  / SSIM: 0.9396
          - PSNR 17.6 %  / SSIM 12.0 % 개선
          - 기존 방법 : Raw Image(3000, 5328) -> Resize(256, 256)     -> 2x2 Patch(128, 128) -> Resize(256, 256)
@@ -57,7 +57,7 @@
 
   - 2024/12/18(수)
     ```
-    - enhanced model 6
+    - enhanced model 6 (06_add_gaussnoise.ipynb)
          - PSNR: 37.7751 / SSIM: 0.9451
          - PSNR 17.7 %  / SSIM 12.6 % 개선
          - 개선 방법 : GaussNoise 증강을 추가해 노이즈 강한 데이터에 대한 성능 향상
@@ -74,11 +74,10 @@
          - 지금까지 LR를 1e-3으로 고정해두고 실험을 진행한 결과 LR가 너무 커 최적점에 도달하지 못하는 것으로 보여 Scheduler를 추가하고 Optimizer를 교체함
          - 한계 : 모델 구조 개선로 모델이 복잡해짐에 따라 과적합 발생 / GPU Memory 한계로 batch_size를 8로 둘 수 밖에 없어 성능 일반화가 쉽지 않음
 
-    - enhanced model 8
+    - enhanced model 8 (08_modify_T_max_weight_decay.ipynb)
          - PSNR: 37.9603 / SSIM: 0.9462
          - PSNR 18.3%  / SSIM 12.8% 개선
          - 개선 방법 : enhanced model 7에 epoch 80, CosineAnnealingLR의 T_max=100, AdamW의 weight_decay=1e-4로 수정
          - 초반 학습 개선을 위해 T_max 값을 100으로 설정, 모델이 깊어짐에 따른 과적합 개선을 위해 weight_decay를 추가
          - 한계 : 50 epoch 이후로 성능 개선이 크게 없음 , weight decay를 더 낮추고 ealry stopping 추가할 필요가 있음
     ```
-    
