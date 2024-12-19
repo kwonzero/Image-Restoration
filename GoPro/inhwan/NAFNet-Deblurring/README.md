@@ -11,10 +11,10 @@
     * device : Cuda (GPU T4 x 2)
     * image_resize : 256x256
     * num_workers : 4
-    * batch_size : 16 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
-    * epoch : 50 -> 100
+    * batch_size : 8 (Block num = 36 -> parameter 증가로 인해 Cuda Out Of Memory error 발생 -> Batch_size = 8로 감소)
+    * epoch : 50 -> 100 -> 200(예정)
   ```
-* Transforms
+* Transforms for train, valid dataset
   ```
     * resize : 256x256 (bicubic interpolation) -> Center Crop -> Random Crop 
     * random horizontal flip (0.2) -> (0.5)
@@ -104,8 +104,6 @@
     - epoch 100
     - Dropout(0.5) 추가
   - 실험 결과
-      * {Train Loss: 70.0902, Train PSNR: 29.9098, Train SSIM: 0.9035}
-      * {Val Loss: 73.3972, Val PSNR: 26.6028, Val SSIM: 0.8646}
       * {Test Loss: 73.0543, Test PSNR: 26.9457, Test SSIM: 0.8771}
     - 학습 초기부터 과적합 발생 (augmentation 확률 증가 필요)
     - 학습의 속도가 느림(논문에서는 1000~3000 epoch로 학습 진행)
@@ -133,8 +131,8 @@
          - Optimizer 변경 : Adam -> AdamW (Weight decay (== L2 Regularization) 적용)
          - Learning Rate Scheduler(CosineAnnealingLR) 적용 -> 초기에는 높은 lr값으로 빠른 학습 후 점차적으로 학습률을 줄여가며 안정적인 학습 진행 -> 과적합 방지
   - 실험 결과
-     - 진행중
-     - Test 2와 비교했을 때 학습 초반 과적합이 해결되었으며, 안정적인 학습 양상을 보임
+       * {Test Loss: 71.8268, Test PSNR: 28.1732, Test SSIM: 0.8962}
+     - Test 2와 비교했을 때 학습 초반 과적합이 해결되었으며, 안정적인 학습 양상을 보임 / PSNR, SSIM 모두 상승
      - SSIM, PSNR Graph : 100 epoch에서도 점진적으로 증가 -> 추가 학습을 진행해 볼 필요가 있음
   - 추가 예정 사항
      - 100 epoch 추가 학습 진행
