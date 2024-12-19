@@ -130,7 +130,7 @@
          - Optimizer 변경 : Adam -> AdamW (Weight decay (== L2 Regularization) 적용)
          - Learning Rate Scheduler(CosineAnnealingLR) 적용 -> 초기에는 높은 lr값으로 빠른 학습 후 점차적으로 학습률을 줄여가며 안정적인 학습 진행 -> 과적합 방지
   - 실험 결과
-       * {Test Loss: 71.8268, Test PSNR: 28.1732, Test SSIM: 0.8962}
+       * Test Loss: 71.7600, Test PSNR: 28.2400, Test SSIM: 0.8987
      - Test 2와 비교했을 때 학습 초반 과적합이 해결되었으며, 안정적인 학습 양상을 보임 / PSNR, SSIM 모두 상승
      - SSIM, PSNR Graph : 100 epoch에서도 점진적으로 증가 -> 추가 학습을 진행해 볼 필요가 있음
   - 추가 예정 사항
