@@ -1,4 +1,4 @@
-# NAFNet-Deblurring
+ # NAFNet-Deblurring
 - NAFNet을 이용한 Deblurring 작업 파이프라인 구축 및 튜닝
 * Dataset
   ```
@@ -86,14 +86,14 @@
     - 30 epoch 에서 조기 종료
     - Val SSIM 값이 0.84를 넘지 못함 -> 주요 요인이 transforms 변경인지, Dropout layer 추가인지 확인 필요
     ```
+## Dataset 구축 작업 변경 이후 학습 진행 사항
 - 12/13
-  - Train, Validation, Test Dataset 구축 작업 변경점
+**Train, Validation, Test Dataset 구축 작업 변경점**
     ```
     기존 : 학습, 검증, 테스트 데이터셋에 모두 Transforms (Resize or Center Crop, Horizontal & Vertical Filp)
     변경 : 학습, 검증 데이터셋에만 Transforms 적용 / 테스트 데이터셋은 Raw Image (1280 x 720)
     ```
   ```
-  [Dataset 구축 작업 변경 이후 학습 진행 사항]
   (12/16)
   
   * blocks_parameter = 'default'
@@ -127,7 +127,6 @@
          - Resize(256x256) -> Center Crop(256x256) -> Random Crop(256x256)
          - Horizontal, Vertical Flip 확률 0.5로 증가
      - Overfitting 방지
-         - Dropout 확률 0.5로 증가
          - Optimizer 변경 : Adam -> AdamW (Weight decay (== L2 Regularization) 적용)
          - Learning Rate Scheduler(CosineAnnealingLR) 적용 -> 초기에는 높은 lr값으로 빠른 학습 후 점차적으로 학습률을 줄여가며 안정적인 학습 진행 -> 과적합 방지
   - 실험 결과
