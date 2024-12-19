@@ -112,7 +112,7 @@
   - 추가 예정 사항
     - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 방지
 
-  #Test 2
+  # Test 2
   - 변경점
     - Test 1에서 저장된 모델에 TLC 적용 후 추론 진행
   - 실험 결과
@@ -122,11 +122,33 @@
     - Transforms : Center Crop -> Random Crop (256 x 256) & Increase Flip Probablity (0.5)
     - Optimizer 변경 : Adam -> AdamW (beta 1 = 0.9, beta 2 = 0.9, weight decay = 0)
     - L2 규제 추가
+
+  # Test 3
+  - 변경점
+     - Data Transforms
+         - Resize(256x256) -> Center Crop(256x256) -> Random Crop(256x256)
+         - Horizontal, Vertical Flip 확률 0.5로 증가
+     - Overfitting 방지
+         - Dropout 확률 0.5로 증가
+         - Optimizer 변경 : Adam -> AdamW (Weight decay (== L2 Regularization) 적용)
+         - Learning Rate Scheduler(CosineAnnealingLR) 적용 -> 초기에는 높은 lr값으로 빠른 학습 후 점차적으로 학습률을 줄여가며 안정적인 학습 진행 -> 과적합 방지
+  - 실험 결과
+     - 진행중
+     - Test 2와 비교했을 때 학습 초반 과적합이 해결되었으며, 안정적인 학습 양상을 보임
+     - SSIM, PSNR Graph : 100 epoch에서도 점진적으로 증가 -> 추가 학습을 진행해 볼 필요가 있음
+  - 추가 예정 사항
+     - 100 epoch 추가 학습 진행
   ```
+**# Test 3 Results**
+
+<img src = "https://github.com/user-attachments/assets/25ff6c1f-fcaf-416a-93ce-1b8d10d53998" width="250" height="250">
+<img src = "https://github.com/user-attachments/assets/53ef68ab-47f4-4b83-9151-e1f65bec5667" width="250" height="250">
+<img src = "https://github.com/user-attachments/assets/42825487-1c74-454b-a942-1ebcadaebe06" width="250" height="250">
 
 ## 진행 예정 사항
 ```
- 1. Transform : Center Crop -> Random Crop (256 x 256), Horizontal Filp (0.5), Vertical Flip (0.5) 변경 후 100 epoch 학습 -> TLC 적용 후 추론 결과 확인
- 2. Scheduler (stepLR, cosineAnnealingLR 등) 적용 후 성능 비교
- 3. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
+ 1. 약 500 epoch까지 학습 진행
+ 2. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
+ 3. Input Image Concatenate 작업 진행 (Fast-Fourier Transform)
+ 4. NAF Block, NAFNet 구조 변경 (AdaRevD, CGNet..)
 ```
