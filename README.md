@@ -11,12 +11,10 @@
 * 진행 사항
   - 2024/12/5(목)
     ```
-    - sidd challenge dataset으로 변경 후 실험 진행
-     
     - Baseline model
          - LR = 1e-4 / 150 Epoch
          - PSNR: 32.0821 / SSIM: 0.8392
-    
+        
     - enhanced model 1 (01_data_x12.ipynb)
          - PSNR: 36.531 / SSIM: 0.936
          - PSNR: 13.9%  / SSIM: 11.5% 개선
@@ -84,10 +82,9 @@
     
   - 2024/12/20(금)
     ```
-    - enhanced model 9 (08_ealry_stopping.ipynb)
-         - PSNR: ㅇㅇㅇ / SSIM: ㅇㅇㅇ
-         - PSNR: ㅇㅇ%  / SSIM: ㅇㅇ% 개선
-         - 개선 방법 : 과적합 개선을 위해 weight decay=1e-2로 더 강하게 주고 ealry stopping 추가
-         - 
+    - enhanced model 9 (09_ealry_stopping.ipynb) -> 그대로 다시 돌리기
+         - PSNR: ㅇㅇ / SSIM: ㅇㅇ
+         - PSNR: ㅇㅇ%   / SSIM: ㅇㅇ% 개선
+         - 개선 방법 : 과적합 개선을 위해 모델 구조를 간결하게 변경(파라미터 약 41% 감소), weight decay=1e-2로 더 강하게 주고 ealry stopping 추가
          - 한계 : 
     ```
