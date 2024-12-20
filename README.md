@@ -81,3 +81,13 @@
          - 초반 학습 개선을 위해 T_max 값을 100으로 설정, 모델이 깊어짐에 따른 과적합 개선을 위해 weight_decay를 추가
          - 한계 : 50 epoch 이후로 성능 개선이 크게 없음 , weight decay를 더 강하게 주고 ealry stopping 추가할 필요가 있음
     ```
+    
+  - 2024/12/20(금)
+    ```
+    - enhanced model 9 (07_adamw_cosineannealinglr.ipynb)
+         - PSNR: 37.834 / SSIM: 0.945
+         - PSNR: 17.9%  / SSIM: 12.6%개선
+         - 개선 방법 : 과적합 개선을 위해 weight decay=1e-2로 더 강하게 주고 ealry stopping 추가
+         - 
+         - 한계 : 
+    ```
