@@ -99,41 +99,41 @@
   * blocks_parameter = 'default'
   
   # Test 1
-  - 변경점
+  * 변경점
     - data transforms : resize(256x256) -> center crop(256x256) 
     - epoch 100
     - Dropout(0.5) 추가
-  - 실험 결과
+  * 실험 결과
       * {Test Loss: 73.0543, Test PSNR: 26.9457, Test SSIM: 0.8771}
     - 학습 초기부터 과적합 발생 (augmentation 확률 증가 필요)
     - 학습의 속도가 느림(논문에서는 1000~3000 epoch로 학습 진행)
-  - 추가 예정 사항
+  * 추가 예정 사항
     - TLC (Test-time Local Converter) : Full size(1280 x 720) Test 진행 시 성능 하락 방지
 
   # Test 2
-  - 변경점
+  * 변경점
     - Test 1에서 저장된 모델에 TLC 적용 후 추론 진행
-  - 실험 결과
+  * 실험 결과
       * {Test Loss: 72.5421, Test PSNR: 27.4579, Test SSIM: 0.8865}
     - Test_1 SSIM : 0.8771 에서 Test_2 SSIM : 0.8865로 유의미한 상승값 확인
-  - 추가 예정 사항
+  * 추가 예정 사항
     - Transforms : Center Crop -> Random Crop (256 x 256) & Increase Flip Probablity (0.5)
-    - Optimizer 변경 : Adam -> AdamW (beta 1 = 0.9, beta 2 = 0.9, weight decay = 0)
+    - Optimizer 변경 : Adam -> AdamW (lr = 1e-3, betas = (0.9, 0.9), weight decay = 1e-3)
     - L2 규제 추가
 
   # Test 3
-  - 변경점
+  * 변경점
      - Data Transforms
          - Resize(256x256) -> Center Crop(256x256) -> Random Crop(256x256)
          - Horizontal, Vertical Flip 확률 0.5로 증가
      - Overfitting 방지
-         - Optimizer 변경 : Adam -> AdamW (Weight decay (== L2 Regularization) 적용)
+         - Optimizer 변경 : Adam -> AdamW (lr = 1e-3, betas = (0.9, 0.9), weight decay = 1e-3) -> Weight decay (L2 Regularization) 적용
          - Learning Rate Scheduler(CosineAnnealingLR) 적용 -> 초기에는 높은 lr값으로 빠른 학습 후 점차적으로 학습률을 줄여가며 안정적인 학습 진행 -> 과적합 방지
-  - 실험 결과
+  * 실험 결과
        * Test Loss: 71.7600, Test PSNR: 28.2400, Test SSIM: 0.8987
      - Test 2와 비교했을 때 학습 초반 과적합이 해결되었으며, 안정적인 학습 양상을 보임 / PSNR, SSIM 모두 상승
      - SSIM, PSNR Graph : 100 epoch에서도 점진적으로 증가 -> 추가 학습을 진행해 볼 필요가 있음
-  - 추가 예정 사항
+  * 추가 예정 사항
      - 100 epoch 추가 학습 진행
   ```
 **# Test 3 Results**
