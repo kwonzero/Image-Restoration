@@ -67,17 +67,17 @@
     
   - 2024/12/19(목)
     ```
-    * enhanced model 7
+    - enhanced model 7 (07_adamw_cosineannealinglr.ipynb)
          - PSNR: 37.834 / SSIM: 0.945
          - PSNR: 17.9%  / SSIM: 12.6%개선
          - 개선 방법 : 150 Epoch로 증가, 모델 구조 개선(복잡도 증가), Optimizer 변경(Adam -> AdamW) , LR Scheduler 추가(CosineAnnealingLR) T_max=20으로 두어 Warm Restart
          - 지금까지 LR를 1e-3으로 고정해두고 실험을 진행한 결과 LR가 너무 커 최적점에 도달하지 못하는 것으로 보여 Scheduler를 추가하고 Optimizer를 교체함
          - 한계 : 모델 구조 개선로 모델이 복잡해짐에 따라 과적합 발생 / GPU Memory 한계로 batch_size를 8로 둘 수 밖에 없어 성능 일반화가 쉽지 않음
 
-    # enhanced model 8 (08_modify_T_max_weight_decay.ipynb)
+    - enhanced model 8 (08_modify_T_max_weight_decay.ipynb)
          - PSNR: 37.960 / SSIM: 0.946
          - PSNR: 18.3%  / SSIM: 12.8% 개선
          - 개선 방법 : enhanced model 7에 epoch 80, CosineAnnealingLR의 T_max=100, AdamW의 weight_decay=1e-4로 수정
          - 초반 학습 개선을 위해 T_max 값을 100으로 설정, 모델이 깊어짐에 따른 과적합 개선을 위해 weight_decay를 추가
-         - 한계 : 50 epoch 이후로 성능 개선이 크게 없음 , weight decay를 더 낮추고 ealry stopping 추가할 필요가 있음
+         - 한계 : 50 epoch 이후로 성능 개선이 크게 없음 , weight decay를 더 강하게 주고 ealry stopping 추가할 필요가 있음
     ```
