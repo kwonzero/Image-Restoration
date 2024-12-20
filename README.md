@@ -84,7 +84,7 @@
     
   - 2024/12/20(금)
     ```
-    - enhanced model 9 (07_adamw_cosineannealinglr.ipynb)
+    - enhanced model 9 (08_ealry_stopping.ipynb)
          - PSNR: ㅇㅇㅇ / SSIM: ㅇㅇㅇ
          - PSNR: ㅇㅇ%  / SSIM: ㅇㅇ% 개선
          - 개선 방법 : 과적합 개선을 위해 weight decay=1e-2로 더 강하게 주고 ealry stopping 추가
