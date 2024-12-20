@@ -85,8 +85,8 @@
   - 2024/12/20(금)
     ```
     - enhanced model 9 (07_adamw_cosineannealinglr.ipynb)
-         - PSNR: 37.834 / SSIM: 0.945
-         - PSNR: 17.9%  / SSIM: 12.6%개선
+         - PSNR: ㅇㅇㅇ / SSIM: ㅇㅇㅇ
+         - PSNR: ㅇㅇ%  / SSIM: ㅇㅇ% 개선
          - 개선 방법 : 과적합 개선을 위해 weight decay=1e-2로 더 강하게 주고 ealry stopping 추가
          - 
          - 한계 : 
