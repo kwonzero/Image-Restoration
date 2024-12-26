@@ -145,28 +145,29 @@
   ```
   # Test 4
   * 변경점
-     - Test 3의 모델을 200 epoch 까지 학습 진행 -> early stopping in 180 epoch
+     - Test 3의 모델을 200 epoch 까지 학습 진행
   * 실험 결과
        * Test Loss: 70.8535, Test PSNR: 29.1465, Test SSIM: 0.9113
      - Training, Validation 모두 학습 진행이 느려짐 (CosineAnnealingLR 추가로 인해 lr값이 1 epoch당 6e-5씩 감소)
      - Local Minimum에 갇힌것으로 판단됨
      - CosineAnnealingLR scheduler의 T_max값 설정에 문제가 있는것을 파악
   * 추가 예정 사항
-     - T_max값 변경 후 다시 500 epoch 학습 진행
+     - T_max값 변경 후 재학습 (Max epoch : 500) 진행
 
   # Test 5
   * 변경점
-     - T_max : Max epoch (500) 설정 후 학습 진행
+     - T_max, Max epoch : 500 설정 후 재학습 진행
   * 실험 결과
        * 
      - 
   * 추가 예정 사항
      - 
-  ```
+   ```
 
 ## 진행 예정 사항
 ```
  1. 약 500 epoch까지 학습 진행
+ 2. 초기 learning rate (1e-3 -> 1e-2) 변경 - 초반 빠른 학습을 위해 
  2. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
  3. Input Image Concatenate 작업 진행 (Fast-Fourier Transform)
  4. NAF Block, NAFNet 구조 변경 (AdaRevD, CGNet..)
