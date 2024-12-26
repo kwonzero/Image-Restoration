@@ -94,7 +94,7 @@
     변경 : 학습, 검증 데이터셋에만 Transforms 적용 / 테스트 데이터셋은 Raw Image (1280 x 720)
     ```
   ```
-  (12/16)
+  (12/16 ~)
   
   * blocks_parameter = 'default'
   
@@ -141,6 +141,28 @@
 <img src = "https://github.com/user-attachments/assets/25ff6c1f-fcaf-416a-93ce-1b8d10d53998" width="250" height="250">
 <img src = "https://github.com/user-attachments/assets/53ef68ab-47f4-4b83-9151-e1f65bec5667" width="250" height="250">
 <img src = "https://github.com/user-attachments/assets/42825487-1c74-454b-a942-1ebcadaebe06" width="250" height="250">
+
+  ```
+  # Test 4
+  * 변경점
+     - Test 3의 모델을 200 epoch 까지 학습 진행 -> early stopping in 180 epoch
+  * 실험 결과
+       * Test Loss: 70.8535, Test PSNR: 29.1465, Test SSIM: 0.9113
+     - Training, Validation 모두 학습 진행이 느려짐 (CosineAnnealingLR 추가로 인해 lr값이 1 epoch당 6e-5씩 감소)
+     - Local Minimum에 갇힌것으로 판단됨
+     - CosineAnnealingLR scheduler의 T_max값 설정에 문제가 있는것을 파악
+  * 추가 예정 사항
+     - T_max값 변경 후 다시 500 epoch 학습 진행
+
+  # Test 5
+  * 변경점
+     - T_max : Max epoch (500) 설정 후 학습 진행
+  * 실험 결과
+       * 
+     - 
+  * 추가 예정 사항
+     - 
+  ```
 
 ## 진행 예정 사항
 ```
