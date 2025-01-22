@@ -158,17 +158,38 @@
   * 변경점
      - T_max, Max epoch : 500 설정 후 재학습 진행
   * 실험 결과
-       * 
-     - 
+       * Test Loss: 69.7332, Test PSNR: 30.2668, Test SSIM: 0.9257
+     - PSNR 및 SSIM값 개선 / 과적합 문제 해결 (약 450 epoch까지 꾸준한 성능 향상)
+     - 강한 Blur 영역 및 객체(바닥의 타일, 글자, tiny objects)에 대한 학습이 더 필요할 것으로 판단
+     - 모델 학습 및 최적화 속도 개선이 필요 (1 epoch당 약 7분 소요) 
   * 추가 예정 사항
-     - 
+     - Scheduler Customizing
+     - Train, Valid dataset 구축 방법 변경 및 Rotation 추가
+     - 모델 경량화
+
+  # Test 6
+  * 변경점
+     - Custom CosineAnnealingLR 적용 (100 epoch 마다 max_lr *= gamma(0.6))
+     - Train, Valid dataset Transforms 추가 : Random Rotation(90)
+     - 모델 경량화 (enc_blks : [1,1,1,1,1,1] / middle_blk_num = 1 / dec_blks = [1,1,1,1,1,1])
+     - Train, Valid dataset 구축 방법 변경 : 1280 x 720 원본 이미지 -> 8개의 패치 생성(512 x 512) -> Laplacian variance 값을 계산하여 패치들 중 가장 Blur 처리가 심한 이미지 선택 -> Random Crop (256 x 256)
+  * 실험 결과 (40epoch 조기 종료)
+       * Test Loss: 75.4907, Test PSNR: 24.5093, Test SSIM: 0.8146
+     - 학습 시간 대폭 감소 (1 epoch당 약 3분 소요)
+     - Train dataset에 Rotation 추가 및 Blur 수치가 높은(학습하기 어려운) 이미지 구축 + 모델 경량화 -> 학습이 진행되지 않음 (Underfitting 발생)
+  * 추가 예정 사항
+     - 모델 구조(enc_blks, middle_blk_num, dec_blks 개수)를 복원하여 Underfitting 방지 후 재학습
+
+  # Test 7
+  * 변경점
+     - 모델 구조 복원 (default set)
+  * 실험 결과
+       * [200 epoch] Test Loss: 71.3298, Test PSNR: 28.6702, Test SSIM: 0.9018
    ```
 
 ## 진행 예정 사항
-```
- 1. 약 500 epoch까지 학습 진행
- 2. 초기 learning rate (1e-3 -> 1e-2) 변경 - 초반 빠른 학습을 위해 
- 2. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
- 3. Input Image Concatenate 작업 진행 (Fast-Fourier Transform)
- 4. NAF Block, NAFNet 구조 변경 (AdaRevD, CGNet..)
+``` 
+ 1. SimpleGate 구조 변경 -> SwiGLU, GeGLU, ReGLU
+ 2. Input Image Concatenate 작업 진행 (Fast-Fourier Transform)
+ 3. NAF Block, NAFNet 구조 변경 (AdaRevD, CGNet..)
 ```
